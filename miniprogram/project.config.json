@@ -1,0 +1,118 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "minifyWXML": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx07a9109a75143ca4",
+  "projectname": "yunxiao",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "过磅数据",
+          "pathName": "pages/demo/weighing/weighing",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "合同",
+          "pathName": "pages/demo/contract/contract",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "数据统计",
+          "pathName": "pages/demo/statistic/statistic",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "调度指令",
+          "pathName": "pages/demo/scheduling/scheduling",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "通知",
+          "pathName": "pages/demo/notice/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "异常审批",
+          "pathName": "pages/demo/abnormal/abnormal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "授权",
+          "pathName": "pages/login/authorize/authorize",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

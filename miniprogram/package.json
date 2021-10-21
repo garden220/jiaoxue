@@ -1,0 +1,19 @@
+{
+  "name": "jiaoxue",
+  "version": "1.0.0",
+  "description": "根目录安装vant\r npm i @vant/weapp -S --production\r 右上角详情--本地设置--使用npm模块",
+  "main": "app.js",
+  "dependencies": {
+    "@antv/f2": "^3.7.6",
+    "@antv/f2-canvas": "^1.0.5",
+    "@vant/weapp": "^1.4.4",
+    "axios": "^0.20.0",
+    "js-base64": "^3.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

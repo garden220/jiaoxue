@@ -1,0 +1,12 @@
+<!--index.wxml-->
+
+<view  bind:tap="showPopup" >展示弹出层</view>
+
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view class="container">
+  <drag-sort
+    data="{{imageList}}"
+    bind:change="handleChange">
+  </drag-sort>
+</view>
+</van-popup>

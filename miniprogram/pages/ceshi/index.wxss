@@ -1,0 +1,10 @@
+/**index.wxss**/
+.container{
+  width: 700rpx;
+  height: 1000rpx;
+}
+.ul .li{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 25%;
+}

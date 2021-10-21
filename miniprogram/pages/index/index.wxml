@@ -1,0 +1,23 @@
+
+<view class="page-layout">
+  <view class="n-title">栀子花一班</view>
+  <view class="n-top">
+    <view class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':text}}</view>
+    <view class="n-operation">
+      <view class="n-oper-statistics">已选<span>{{lengthvalue}}</span>人</view>
+      <!-- <view class="n-oper-btn">
+        <button class="n-oper-button" hover-class="n-oper-button-hover">编辑</button>
+      </view> -->
+      <view class="n-oper-btn">
+        <button class="n-oper-button" hover-class="n-oper-button-hover" bindtap="handlereset">重置</button>
+      </view>
+      <view class="n-oper-btn">
+        <button class="n-oper-button" hover-class="n-oper-button-hover" bindtap="handlecopy">复制</button>
+      </view>
+    </view>
+  </view>
+  <view class="n-content">
+    <view class="n-con-list"  wx:for="{{value}}" wx:key="number" bindtap="ontap" data-item="{{item}}"><button class="n-con-button {{item.checked?'n-con-button-checked':''}}">{{item.initial+item.name}}</button></view>
+  </view>
+  
+</view>
