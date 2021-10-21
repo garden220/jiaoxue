@@ -5,7 +5,6 @@
     wx:for="{{imageList}}"
     wx:key="index">
     <view
-      wx:if="{{item.type !== 'upload'}}"
       class="image-item {{draging ? 'is-draging' : ''}} {{startIndex === index ? 'actived-image' : ''}} {{item.deleted ? 'hidden' : ''}}"
       style="left: {{item.left}}px; top: {{item.top}}px;"
       data-index="{{index}}"
@@ -13,26 +12,21 @@
       catchtouchmove="handleTouchMove"
       catchtouchcancel="handleTouchend"
       catchtouchend="handleTouchend">
+      <button class="n-con-button n-con-button-checked">{{item.selectvalue.initial+item.selectvalue.name}}</button>
       <view
-        class="image-content">
-        {{item.url}}
-      </view>
-      <view
+        wx:if="{{deletevalue}}"
         class="delete-icon"
         data-index="{{index}}"
         catchtap="handleDelete">
-      </view>
-    </view>
-    <view
-      wx:elif="{{item.type === 'upload'}}"
-      class="image-item {{draging ? 'is-draging' : ''}}"
-      style="left: {{item.left}}px; top: {{item.top}}px;">
-      <view
-        class="image-content">
-        上传图片
+        <i class="iconfont icon-shanchu1"></i>
       </view>
     </view>
   </view>
 </view>
 
+<!-- <view
+        class="delete-icon"
+        data-index="{{index}}"
+        catchtap="handleDelete">
+      </view> -->
 

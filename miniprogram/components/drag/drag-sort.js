@@ -3,16 +3,20 @@ const systemInfo = wx.getSystemInfoSync()
 let rpx2px = function (rpx) {
   return systemInfo.windowWidth / 750 * rpx
 }
-const IMAGE_SIZE = rpx2px(210) // 图片尺寸
-const COLS = 3 // 图片列数
-const MARGIN_IMAGE = rpx2px(30) // 图片间距
-const MARGIN_CONTAINER = rpx2px(30) // 容器间距
-const MAX_COUNT = 5 // 图片最大数量
+const IMAGE_SIZE_WIDTH = rpx2px(160) // 图片尺寸
+const IMAGE_SIZE_HEIGHT = rpx2px(80)
+const COLS = 4 // 图片列数
+const MARGIN_IMAGE = rpx2px(0) // 图片间距
+const MARGIN_CONTAINER = rpx2px(0) // 容器间距
+const MAX_COUNT = 0 // 图片最大数量
 
 Component({
   /**
    * 组件的属性列表
    */
+  options:{
+    styleIsolation: 'shared'
+  },
   properties: {
     data: {
       type: Array,
@@ -23,22 +27,40 @@ Component({
         }
       }
     },
+    deletestate:{
+      type: Boolean,
+      value: false
+    }
   },
-
+  observers: {
+    'deletestate'(val) {
+      console.log(val)
+      this.setData({
+        deletevalue:val
+      });
+    }
+  },
   /**
    * 组件的初始数据
    */
   data: {
     imageList: [],
     draging: false,
+    deletevalue:false
   },
   lifetimes: {
     attached: function () {
+      let _delete=this.data.deletestate;
+      this.setData({
+        deletevalue:_delete
+      });
     },
   },
+  
   /**
    * 组件的方法列表
    */
+  
   methods: {
     initPosition () {
       let data = [...this.data.data]
@@ -49,19 +71,15 @@ Component({
       }
       this.setData({
         imageList: data.map((item, index) => {
-          let top = MARGIN_CONTAINER + Math.floor(index / COLS) * (IMAGE_SIZE + MARGIN_IMAGE)
-          let left = MARGIN_CONTAINER + Math.floor(index % COLS) * (IMAGE_SIZE + MARGIN_IMAGE)
+          let top = MARGIN_CONTAINER + Math.floor(index / COLS) * (IMAGE_SIZE_HEIGHT + MARGIN_IMAGE)
+          let left = MARGIN_CONTAINER + Math.floor(index % COLS) * (IMAGE_SIZE_WIDTH + MARGIN_IMAGE)
           let imageItem = {
             index: index,
             boxTop: top,
             boxLeft: left,
             top,
             left,
-          }
-          if (Object.prototype.toString.call(item) === '[object Object]') {
-            imageItem.type = item.type
-          } else {
-            imageItem.url = item
+            selectvalue:item
           }
           return imageItem
         })
@@ -106,7 +124,7 @@ Component({
         return pre.index - next.index
       })
       let imageSortedList = validImageList.map((item) => {
-        return item.url
+        return item.selectvalue
       })
       setTimeout(() => {
         this.setData({
@@ -139,10 +157,10 @@ Component({
       for (let i = 0; i < imageList.length; i++) {
         if (this.data.startIndex !== i &&
           imageList[i].type !== 'upload' &&
-          changedTouch.clientX > imageList[i].left &&
-          changedTouch.clientY > imageList[i].top &&
-          changedTouch.clientX < imageList[i].left + IMAGE_SIZE &&
-          changedTouch.clientY < imageList[i].top + IMAGE_SIZE) {
+          changedTouch.clientX-10 > imageList[i].left &&
+          changedTouch.clientY-39 > imageList[i].top &&
+          changedTouch.clientX-10 < imageList[i].left + IMAGE_SIZE_WIDTH &&
+          changedTouch.clientY-39 < imageList[i].top + IMAGE_SIZE_HEIGHT) {
           if (imageList[this.data.startIndex].boxTop > imageList[i].top) {
             direction = 'up'
           } else if (imageList[this.data.startIndex].boxTop < imageList[i].top) {
@@ -252,7 +270,6 @@ Component({
         })
         imageList[currentIndex] = {
           ...imageList[currentIndex],
-          index: preImage.index,
           top: preImage.boxTop,
           left: preImage.boxLeft,
           boxTop: preImage.boxTop,
@@ -277,7 +294,7 @@ Component({
         })
         this.triggerEvent('change', {
           imageSortedList: validImageList.map((item) => {
-            return item.url
+            return item.selectvalue
           })
         })
       }, 200)

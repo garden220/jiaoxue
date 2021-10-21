@@ -3,10 +3,18 @@
 <view  bind:tap="showPopup" >展示弹出层</view>
 
 <van-popup show="{{ show }}" bind:close="onClose">
-  <view class="container">
-  <drag-sort
-    data="{{imageList}}"
-    bind:change="handleChange">
-  </drag-sort>
+  <view class="container" style="height:{{wheight*2-120}}px">
+    <view class="n-popup-con" style="height:{{wheight*2-160}}px">
+      <drag-sort
+        data="{{imageList}}"
+        deletestate="{{deletestate}}"
+        bind:change="handleChange">
+      </drag-sort>
+    </view>
+    <view class="n-popup-foot">
+      <view class="n-popup-f-delete"><i class="iconfont {{deletestate?'icon-shanchukai':'icon-shanchu'}}" bind:tap="onDelete"></i></view>
+      <view class="n-popup-f-btn"><button class="n-con-button n-con-button-gray">取消</button></view>
+      <view class="n-popup-f-btn"><button class="n-con-button n-con-button-red">确定</button></view>
+    </view>
 </view>
 </van-popup>

@@ -1,0 +1,28 @@
+/* pages/index/index.wxss */
+view{
+  box-sizing: border-box;
+}
+.n-con-button{
+  width: 136rpx !important;
+  height: 62rpx !important;
+  min-height: 62rpx !important;
+  font-size: 28rpx;
+  padding: 0;
+  line-height: 62rpx;
+  border-radius: 10rpx;
+  background-color: #ecebeb;
+  font-weight:normal;
+}
+.n-con-button-checked{
+  background-color: #f25331;
+  color:#ffffff;
+}
+.n-con-list{
+  padding:8rpx 15rpx;
+}
+.drag-con{
+  padding: 50rpx 0 20rpx 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+

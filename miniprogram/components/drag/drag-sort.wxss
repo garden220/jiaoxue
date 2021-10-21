@@ -1,25 +1,13 @@
 /* components/drag-sort-anim/drag-sort-anim.wxss */
 
 .image-list{
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   position: relative;
-  padding: 0 30rpx 30rpx 0;
-  -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-}
-.image-item-wrap{
-  /* position: relative; */
-  margin: 30rpx 0 0 30rpx;
-  width: 210rpx;
-  height: 210rpx;
+
 }
 .image-item-wrap .image-item{
   position: absolute;
-  width: 210rpx;
-  height: 210rpx;
-  background: #ececec;
   transition: all 0 linear;
 }
 .image-item-wrap .image-item.is-draging{
@@ -36,12 +24,16 @@
 }
 .delete-icon{
   position: absolute;
-  right: -18rpx;
-  top: -18rpx;
-  width: 36rpx;
-  height: 36rpx;
-  background: red;
+  right: -10rpx;
+  top: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  color: #f8c883;
   border-radius: 50%;
+
+}
+.delete-icon .iconfont{
+  font-size: 38rpx;
 }
 .hidden{
   display: none !important;

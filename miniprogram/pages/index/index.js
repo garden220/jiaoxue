@@ -127,6 +127,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+
   // 获取系统信息
     wx.getSystemInfo({
       success: function (res) {

@@ -1,10 +1,51 @@
 /**index.wxss**/
 .container{
   width: 700rpx;
-  height: 1000rpx;
+  border-radius: 20rpx;
 }
-.ul .li{
-  display: inline-block;
-  box-sizing: border-box;
-  width: 25%;
+.n-popup-con{
+  padding: 30rpx 0 0rpx 38rpx;
+  overflow: auto;
+}
+.van-center-enter-to{
+  border-radius: 50rpx;
+}
+.n-popup-foot{
+  position: fixed;
+  width: 100%;
+  height: 80rpx;
+  left:0;
+  bottom:0;
+  display: flex;
+  background-color: #fefefe;
+  border-top:1px solid #f6f6f6;
+  padding: 10rpx 30rpx 0 0;
+}
+.n-popup-f-btn{
+  width: 160rpx;
+}
+.n-popup-f-delete{
+  flex-grow: 1;
+}
+.n-con-button-red{
+  background-color: #e6e6e6 !important;
+  border:1px solid #e2590e;
+  color:#e2590e;
+}
+.n-con-button-red:hover{
+  background-color: #e2590e !important;
+  color:#ffffff;
+}
+.n-con-button-gray{
+  background-color: #e6e6e6 !important;
+}
+.n-popup-f-delete{
+  padding: 10rpx 0 0 50rpx;
+}
+.n-popup-f-delete .iconfont{
+  font-size: 43rpx;
+  color:#b5a095;
+}
+.n-popup-f-delete .iconfont.icon-shanchukai{
+  color:#e2590e;
 }
