@@ -1,8 +1,4 @@
 {
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "drag-sort": "/components/drag/drag-sort",
-    "van-popup": "@vant/weapp/popup/index"
-  },
+  "usingComponents": {},
   "navigationStyle":"custom"
 }

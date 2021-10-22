@@ -1,13 +1,20 @@
-
+<!--index.wxml-->
 <view class="page-layout">
   <view class="n-title">栀子花一班</view>
   <view class="n-top">
-    <view class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':text}}</view>
+    <view wx:if="{{arrange==='0'}}" class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':(text)}}</view>
+    <view wx:if="{{arrange==='2'}}" class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':(arrangeval[0])}}</view>
+    <view wx:if="{{arrange==='3'}}" class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':(arrangeval[1])}}</view>
+    <view wx:if="{{arrange==='4'}}" class="n-text {{text===''?'n-text-ph':''}}" selecttable="true" bindlongtap="copy">{{text===''?'请点击下方按钮选择':(arrangeval[2])}}</view>
     <view class="n-operation">
-      <view class="n-oper-statistics">已选<span>{{lengthvalue}}</span>人</view>
-      <!-- <view class="n-oper-btn">
-        <button class="n-oper-button" hover-class="n-oper-button-hover">编辑</button>
-      </view> -->
+      <view class="n-arrange">
+        <view class="n-arrange-icon" bindtap="onArrange" data-arrange="2"><i class="iconfont icon-lianglie {{arrange=='2'?'n-ai-hover':''}}"></i></view>
+        <view class="n-arrange-icon" bindtap="onArrange" data-arrange="3"><i class="iconfont icon-sanlie {{arrange==='3'?'n-ai-hover':''}}"></i></view>
+        <view class="n-arrange-icon" bindtap="onArrange" data-arrange="4"><i class="iconfont icon-silie {{arrange==='4'?'n-ai-hover':''}}"></i></view>
+      </view>
+      <view class="n-oper-btn">
+        <button class="n-oper-button" hover-class="n-oper-button-hover" bind:tap="showPopup">排序</button>
+      </view>
       <view class="n-oper-btn">
         <button class="n-oper-button" hover-class="n-oper-button-hover" bindtap="handlereset">重置</button>
       </view>
@@ -15,9 +22,29 @@
         <button class="n-oper-button" hover-class="n-oper-button-hover" bindtap="handlecopy">复制</button>
       </view>
     </view>
+    <view class="n-oper-statistics">已选<span>{{lengthvalue}}</span>人</view>
   </view>
   <view class="n-content">
     <view class="n-con-list"  wx:for="{{value}}" wx:key="number" bindtap="ontap" data-item="{{item}}"><button class="n-con-button {{item.checked?'n-con-button-checked':''}}">{{item.initial+item.name}}</button></view>
   </view>
   
 </view>
+
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view class="container" style="height:{{wheight*2-168}}px">
+    <view class="n-popup-con" style="height:{{wheight*2-230}}px">
+      <drag-sort
+        data="{{select}}"
+        deletestate="{{deletestate}}"
+        bind:change="handleChange">
+      </drag-sort>
+    </view>
+    <view class="n-popup-foot">
+      <view class="n-popup-f-delete">
+        <!-- <i class="iconfont {{deletestate?'icon-shanchukai':'icon-shanchu'}}" bind:tap="onDelete"></i> -->
+      </view>
+      <view class="n-popup-f-btn"><button class="n-con-button n-con-button-gray" bind:tap="onClose">取消</button></view>
+      <view class="n-popup-f-btn"><button class="n-con-button n-con-button-red"  bind:tap="onOk">确定</button></view>
+    </view>
+</view>
+</van-popup>
