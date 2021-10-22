@@ -3,5 +3,6 @@
   "usingComponents": {
     "drag-sort": "/components/drag/drag-sort",
     "van-popup": "@vant/weapp/popup/index"
-  }
+  },
+  "navigationStyle":"custom"
 }

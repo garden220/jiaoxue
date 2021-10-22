@@ -12,7 +12,8 @@
       catchtouchmove="handleTouchMove"
       catchtouchcancel="handleTouchend"
       catchtouchend="handleTouchend">
-      <button class="n-con-button n-con-button-checked">{{item.selectvalue.initial+item.selectvalue.name}}</button>
+      <button class="n-con-button n-con-button-checked">{{item.selectvalue.name}}</button>
+      <!-- item.selectvalue.initial+ -->
       <view
         wx:if="{{deletevalue}}"
         class="delete-icon"

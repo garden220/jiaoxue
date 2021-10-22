@@ -34,9 +34,13 @@ Component({
   },
   observers: {
     'deletestate'(val) {
-      console.log(val)
       this.setData({
         deletevalue:val
+      });
+    },
+    'data'(val){
+      this.setData({
+        imageList:[...val]
       });
     }
   },
@@ -158,9 +162,9 @@ Component({
         if (this.data.startIndex !== i &&
           imageList[i].type !== 'upload' &&
           changedTouch.clientX-10 > imageList[i].left &&
-          changedTouch.clientY-39 > imageList[i].top &&
+          changedTouch.clientY-89 > imageList[i].top &&
           changedTouch.clientX-10 < imageList[i].left + IMAGE_SIZE_WIDTH &&
-          changedTouch.clientY-39 < imageList[i].top + IMAGE_SIZE_HEIGHT) {
+          changedTouch.clientY-89 < imageList[i].top + IMAGE_SIZE_HEIGHT) {
           if (imageList[this.data.startIndex].boxTop > imageList[i].top) {
             direction = 'up'
           } else if (imageList[this.data.startIndex].boxTop < imageList[i].top) {

@@ -1,2 +1,3 @@
 @import 'style/master.wxss';
 @import 'style/iconfont.wxss';
+@import 'pages/index/index.wxss';
